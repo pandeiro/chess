@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('chessApp')
-  .controller('AppCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+var app = angular.module('chessApp');
+
+app.controller('AppCtrl', function ($scope) {
+
+  $scope.options = {
+    showTurn:   true,
+    showPieces: true
+  };
+
+});

@@ -16,7 +16,8 @@ describe('Controller: AppCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should have these display options', function () {
+    expect(scope.options.showTurn).toBeDefined();
+    expect(scope.options.showPieces).toBeDefined();
   });
 });

@@ -20,12 +20,6 @@ app.controller('BoardCtrl', function ($scope) {
   $scope.log      = [];
   $scope.selected = null;           // null || {piece: -2, x: 0, y: 7}
 
-  $scope.options = {
-    showTurn:     true,
-    showSelected: true,
-    showPieces:   true
-  };
-
   /**
    * $scope.selectPos(x, y)
    *
