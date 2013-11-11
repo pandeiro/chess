@@ -27,11 +27,10 @@ app.directive('showSelected', function () {
     link: function postLink(scope, element, attrs) {
       var position = {x: scope.$index, y: scope.rowIndex};
       scope.$watch('selected', function (selected) {
-        if (selected && scope.samePos(selected, position)) {
+        if (selected && scope.samePos(selected, position))
           element.addClass('selected');
-        } else {
+        else
           element.removeClass('selected');
-        }
       });
     }
   };
