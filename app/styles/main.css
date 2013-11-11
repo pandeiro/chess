@@ -1,0 +1,85 @@
+/* general */
+
+* { box-sizing: border-box; }
+
+html, body, div.container {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* board */
+
+.table, .board {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.table { background: #eee; }
+
+/* checker pattern */
+
+.row:nth-child(odd)  .square:nth-child(odd),
+.row:nth-child(even) .square:nth-child(even) { background: #fafafa; }
+.row:nth-child(odd)  .square:nth-child(even),
+.row:nth-child(even) .square:nth-child(odd)  { background: #eee;    }
+
+/* grid sizing */
+
+.row { height: 12.5%; }
+.square {
+    display: inline-block;
+    width: 12.5%;
+    height: 100%;
+    padding-bottom: 12px;
+}
+
+/* pieces: !important needed due to nested nth-child use above */
+
+.black.pawn   { background-image:url('../images/blackpawn.png')   !important; }
+.black.rook   { background-image:url('../images/blackrook.png')   !important; }
+.black.knight { background-image:url('../images/blackknight.png') !important; }
+.black.bishop { background-image:url('../images/blackbishop.png') !important; }
+.black.queen  { background-image:url('../images/blackqueen.png')  !important; }
+.black.king   { background-image:url('../images/blackking.png')   !important; }
+.white.pawn   { background-image:url('../images/whitepawn.png')   !important; }
+.white.rook   { background-image:url('../images/whiterook.png')   !important; }
+.white.knight { background-image:url('../images/whiteknight.png') !important; }
+.white.bishop { background-image:url('../images/whitebishop.png') !important; }
+.white.queen  { background-image:url('../images/whitequeen.png')  !important; }
+.white.king   { background-image:url('../images/whiteking.png')   !important; }
+.pawn, .rook, .knight, .bishop, .queen, .king {
+    background-repeat:   no-repeat     !important;
+    background-position: center bottom !important;
+    background-origin:   content-box   !important;
+}
+.king                   { background-size: auto 80% !important; }
+.queen                  { background-size: auto 75% !important; }
+.rook, .knight, .bishop { background-size: auto 60% !important; }
+.pawn                   { background-size: auto 50% !important; }
+
+/* highlighting */
+
+.turn, .possible {
+    -webkit-filter: sepia(7.5%); -moz-filter: sepia(7.5%); filter:sepia(7.5%);
+}
+.selected { background-color: rgba(255,232,212,0.4) !important; }
+
+
+/* large screens */
+
+@media (min-width: 960px) {
+    .board {
+	position: absolute;
+	height: 85%; width: 85%;
+	top: 7.5%;
+	left: 7.5%;
+	box-shadow: 0 1px 3px #ddd;
+    }
+}
