@@ -54,34 +54,29 @@ app.controller('BoardCtrl', function ($scope) {
   }
 
   /**
-   * $scope.getCssClasses(x, y)
+   * $scope.sameSign(piece, turn)
    *
-   * Uses the controller's models to compute the proper css classes
-   * for each square on the board. Called from ng-class directive.
+   * Returns whether the piece belongs to the side indicated in turn. Used by
+   * selectPos and by the showTurn directive to highlight the pices of whoever's
+   * turn it is.
    */
-  $scope.getCssClasses = function(x, y) {
-    var piece = find(x, y), pos = {x: x, y: y},
+  $scope.sameSign = sameSign;
 
-        options = $scope.options, turn = $scope.turn,
-        selected = $scope.selected;
+  /**
+   * $scope.samePos(posX, posY)
+   *
+   * Returns whether two position objects represent the same position. Used
+   * by the selectPos and the showSelected directive.
+   */
+  $scope.samePos = samePos;
 
-    var cssClasses = {};
-
-    if (options.showPieces) {
-      var color = mapPiece(piece).color, rank = mapPiece(piece).rank;
-      cssClasses[color] = true;
-      cssClasses[rank] = rank && true;
-    }
-    if (options.showTurn && !selected) {
-      cssClasses.turn = sameSign(turn, piece);
-    }
-    if (options.showSelected && selected) {
-      cssClasses.selected = samePos(selected, pos);
-    }
-
-    return cssClasses;
-  };
-
+  /**
+   * $scope.mapPiece(n)
+   *
+   * Takes a piece number and returns an object with rank and color keys. Used
+   * by the showPiece directive for getting chess piece background images.
+   */
+  $scope.mapPiece = mapPiece;
 
   // Private methods dependent on $scope
 

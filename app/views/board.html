@@ -3,7 +3,7 @@
   <div class="board" ng-controller="BoardCtrl">
     <div class="row" ng-repeat="row in board" ng-init="rowIndex=$index">
       <div class="square" ng-repeat="square in row"
-	   ng-class="getCssClasses($index, rowIndex)"
+	   show-turn show-selected show-piece
 	   ng-click="selectPos($index, rowIndex)">
       </div>
     </div>

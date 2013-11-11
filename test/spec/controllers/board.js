@@ -56,10 +56,12 @@ describe('Controller: BoardCtrl', function () {
 
   describe('methods', function () {
     it('must have methods for', function () {
-      ['selectPos', 'getCssClasses'].forEach(function(model) {
+      ['selectPos', 'sameSign', 'samePos', 'mapPiece'].forEach(function(model) {
         expect(scope[model]).toBeDefined();
       });
     });
+
+    // TODO: test methods individually
   });
 
 });
