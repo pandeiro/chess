@@ -8,6 +8,7 @@ app.factory('storage', function () {
     // Clojure get semantics: second arg is a default to return if k not found
     get: function (k, otherwise) {
       var result = JSON.parse(localStorage.getItem(k)) || otherwise;
+      return result;
     },
     set: function(k, v) {
       localStorage.setItem(k, JSON.stringify(v));
