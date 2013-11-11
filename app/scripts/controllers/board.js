@@ -90,7 +90,7 @@ app.controller('BoardCtrl', function ($scope) {
   };
 
   function tryMove(x, y) {
-    var result = chessEngine(
+    var result = chessEngine.checkMove(
       $scope.board,                             // given this board
       $scope.log,                               // and this history
       [$scope.selected.x, $scope.selected.y],   // move this piece
