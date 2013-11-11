@@ -12,12 +12,10 @@ app.directive('showTurn', function () {
       if (turn) element.addClass('turn');
 
       scope.$watch('selected', function(selected) {
-        if (scope.options.showTurn)
-          if (!selected && turn) {
-            element.addClass('turn');
-          } else {
-            element.removeClass('turn');
-          }
+        if (!selected && turn)
+          element.addClass('turn');
+        else
+          element.removeClass('turn');
       });
     }
   };
