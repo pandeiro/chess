@@ -12,10 +12,10 @@ describe('Service: boardStore', function () {
   }));
 
   it('should expose these methods as API', function () {
-    expect(typeof storage.all).toBe('function');
-    expect(typeof storage.get).toBe('function');
-    expect(typeof storage.put).toBe('function');
-    expect(typeof storage.uuid).toBe('function');
+    expect(typeof boardStore.all).toBe('function');
+    expect(typeof boardStore.get).toBe('function');
+    expect(typeof boardStore.put).toBe('function');
+    expect(typeof boardStore.uuid).toBe('function');
   });
 
 });
