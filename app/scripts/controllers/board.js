@@ -130,8 +130,8 @@ app.controller('BoardCtrl', function ($scope) {
     // Validation and computation of new board state
     // are coupled to for efficiency; maybe this isn't a good
     // idea? Not sure.
-    checkMove: function(board, log, from, to) {
-      var state = angular.copy(board),
+    checkMove: function(positions, log, from, to) {
+      var now = angular.copy(positions),
           valid,
           mate,
           check,
@@ -141,16 +141,16 @@ app.controller('BoardCtrl', function ($scope) {
       valid = true;
 
       // Computation
-      state[from[1]][from[0]] = {piece: 0};
-      state[to[1]][to[0]] = {piece: piece};
+      now[from[1]][from[0]] = {piece: 0};
+      now[to[1]][to[0]] = {piece: piece};
       check = false;
       mate = false;
 
       return {
-        board: state,
+        board: now,
         valid: valid,
-        mate:  false,
-        check: false
+        mate:  mate,
+        check: check
       };
     }
   };
