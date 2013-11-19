@@ -6,7 +6,7 @@ describe('Controller: AppCtrl', function () {
   beforeEach(module('chessApp'));
 
   var AppCtrl,
-    scope;
+      scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
@@ -20,4 +20,9 @@ describe('Controller: AppCtrl', function () {
     expect(scope.options.showTurn).toBeDefined();
     expect(scope.options.showPieces).toBeDefined();
   });
+
+  it('should define a boards array', function () {
+    expect(scope.boards).toBeDefined();
+  });
+
 });
