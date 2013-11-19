@@ -6,12 +6,12 @@ app.directive('showTurn', function () {
   return {
     restrict: 'A',
     link: function postLink(scope, element, attrs) {
-      var turn = scope.sameSign(scope.square.piece, scope.turn) &&
+      var turn = scope.sameSign(scope.square.piece, scope.board.turn) &&
         scope.options.showTurn;
 
       if (turn) element.addClass('turn');
 
-      scope.$watch('selected', function(selected) {
+      scope.$watch('board.selected', function(selected) {
         if (!selected && turn)
           element.addClass('turn');
         else
@@ -26,7 +26,7 @@ app.directive('showSelected', function () {
     restrict: 'A',
     link: function postLink(scope, element, attrs) {
       var position = {x: scope.$index, y: scope.rowIndex};
-      scope.$watch('selected', function (selected) {
+      scope.$watch('board.selected', function (selected) {
         if (selected && scope.samePos(selected, position))
           element.addClass('selected');
         else

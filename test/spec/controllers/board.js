@@ -21,35 +21,38 @@ describe('Controller: BoardCtrl', function () {
   /* TESTS */
 
   describe('state', function () {
-    it('has models for', function () {
-      ['board', 'turn', 'log', 'selected'].forEach(function(model) {
-        expect(scope[model]).toBeDefined();
-      });
+    it('has a board model', function () {
+      expect(scope['board']).toBeDefined();
     });
-    describe('board', function () {
+    describe('board.pos', function () {
       it('should be 8x8 nested array', function () {
-        expect(scope.board.length).toBe(8);
-        expect(scope.board.map(function(x) { return x.length })).toEqual([
+        expect(scope.board.pos.length).toBe(8);
+        expect(scope.board.pos.map(function(x) { return x.length })).toEqual([
           8,8,8,8,8,8,8,8
         ]);
       });
       it('should have objects as inner elements', function () {
-        expect(typeof scope.board[0][0]).toBe('object'); // hack
+        expect(typeof scope.board.pos[0][0]).toBe('object'); // hack
       });
     });
-    describe('turn', function () {
+    describe('board.turn', function () {
       it('should be a number', function () {
-        expect(typeof scope.turn).toBe('number');
+        expect(typeof scope.board.turn).toBe('number');
       });
     });
-    describe('log', function () {
+    describe('board.log', function () {
       it('should be an array', function() {
-        expect(typeof scope.log.length).toBe('number');
+        expect(typeof scope.board.log.length).toBe('number');
       });
     });
-    describe('selected', function () {
+    describe('board.selected', function () {
       it('should be null or an object', function () {
-        expect(typeof scope.selected).toBe('object'); // null returns that too
+        expect(typeof scope.board.selected).toBe('object'); // null returns that too
+      });
+    });
+    describe('board.ts', function () {
+      it('should be an array', function () {
+        expect(typeof scope.board.ts.length).toBe('number');
       });
     });
   });

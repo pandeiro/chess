@@ -1,7 +1,7 @@
 <div class="table">
 
-    <div class="row" ng-repeat="row in board" ng-init="rowIndex=$index">
   <div class="board">
+    <div class="row" ng-repeat="row in board.pos" ng-init="rowIndex=$index">
       <div class="square" ng-repeat="square in row"
 	   show-turn show-selected show-piece
 	   ng-click="selectPos($index, rowIndex)">
