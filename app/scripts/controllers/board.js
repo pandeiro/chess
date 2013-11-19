@@ -111,8 +111,8 @@ app.controller('BoardCtrl', function ($scope) {
     return a.x === b.x && a.y === b.y;
   }
 
-  function mapBoard(arr) {
-    return arr.map(function(r){ return r.map(function(x){ return {piece: x}})});
+  function toPieces(rows) {
+    return rows.map(function(x){ return {piece: x}; });
   }
 
   function mapPiece(n) { // returns color and rank as array of strings
